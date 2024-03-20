@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Nav from "./components/nav"
+import { HashRouter , Routes , Route } from 'react-router-dom';
+import Home from "./components/index"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <div>
+      <Nav />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='*' element={<div>404 Not Found</div>}></Route>
+          {/* <Route path ="/create-task" element={<div><CreateTask/></div>}/>
+          <Route path ="/completed" element={<div><CompletedList/></div>}/>
+          <Route path ="/register" element={<div><Register/></div>}/>
+          <Route path ="/login" element={<div><Login/></div>}/>
+          <Route path='/edit-task/:id' element={<EditTask />} /> */}
+        </Routes>
+      </div>
+    </HashRouter>
+    
+  </div>
   );
 }
 
